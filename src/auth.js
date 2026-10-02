@@ -1,11 +1,20 @@
 "use strict";
 
-function authenticate(user, password) {
-  if (!user || typeof password !== "string") {
-    return false;
-  }
-
-  return user.active === true && password === user.password;
+function calculateTotal(subtotal, taxRate, discount = 0) {
+  const discountedSubtotal = subtotal - discount;
+  return Number(
+    (discountedSubtotal * (1 + taxRate)).toFixed(2)
+  );
 }
 
-module.exports = { authenticate };
+function formatCurrency(amount, currency = "USD") {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency
+  }).format(amount);
+}
+
+module.exports = {
+  calculateTotal,
+  formatCurrency
+};
