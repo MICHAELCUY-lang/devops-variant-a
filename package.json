@@ -1,0 +1,10 @@
+{
+  "name": "devops-variant-a",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "lint": "node scripts/lint.js",
+    "security": "node scripts/security-check.js"
+  }
+}
