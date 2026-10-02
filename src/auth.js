@@ -5,7 +5,7 @@ function authenticate(user, password) {
     return false;
   }
 
-  return user.active === true && password === user.password;
+  return password === user.password;
 }
 
 module.exports = { authenticate };
