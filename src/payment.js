@@ -9,4 +9,14 @@ function calculateTotal(subtotal, taxRate, discount = 0) {
   return Number((discountedSubtotal * (1 + taxRate)).toFixed(2));
 }
 
-module.exports = { calculateTotal };
+function formatCurrency(amount, currency = "USD") {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency
+  }).format(amount);
+}
+
+module.exports = {
+  calculateTotal,
+  formatCurrency
+};

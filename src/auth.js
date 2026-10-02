@@ -1,20 +1,13 @@
 "use strict";
 
-function calculateTotal(subtotal, taxRate, discount = 0) {
-  const discountedSubtotal = subtotal - discount;
-  return Number(
-    (discountedSubtotal * (1 + taxRate)).toFixed(2)
-  );
-}
+function authenticate(user, password) {
+  if (!user || typeof password !== "string") {
+    return false;
+  }
 
-function formatCurrency(amount, currency = "USD") {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency
-  }).format(amount);
+  return user.active === true && password === user.password;
 }
 
 module.exports = {
-  calculateTotal,
-  formatCurrency
+  authenticate
 };
